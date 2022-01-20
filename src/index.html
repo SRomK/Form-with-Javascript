@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello Rigo with Vanilla.js</title>
+    <title>Form with Javascript</title>
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
@@ -14,16 +14,52 @@
   </head>
   <body>
     <div class="container-fluid text-center">
-      <h1 class="mt-5">Hello Rigo!</h1>
-      <img src="./rigo-baby.jpg" />
-      <p class="alert alert-warning mt-4">
-        If this text is <b>not</b> centered and <b>yellow</b>, you probably have
-        an error
-      </p>
-      <div class="fixed-bottom p-4">
-        Made with ❤️ by
-        <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
-      </div>
+      <form class="registration">
+        <h1 class="mt-5">Registration Form</h1>
+        <label for="userName">
+          <span>Username</span>
+          <input type="text" id="userName" minlength="3" required />
+          <ul class="input-requirements">
+            <li>At least 3 characters long</li>
+            <li>
+              Must only contain letters and numbers (no special characters)
+            </li>
+          </ul>
+        </label>
+        <label for="password">
+          <span>Password</span>
+          <input
+            type="text"
+            id="password"
+            maxlength="100"
+            minlength="8"
+            required
+          />
+          <ul class="input-requirements">
+            <li>At least 8 characters long (and least)</li>
+            <li>
+              Must only contain letters and numbers (no special characters)
+            </li>
+            <li>At least 3 characters long</li>
+            <li>
+              Must only contain letters and numbers (no special characters)
+            </li>
+            <li>
+              Must only contain letters and numbers (no special characters)
+            </li>
+          </ul>
+        </label>
+        <img src="./rigo-baby.jpg" />
+        <p class="alert alert-warning mt-4">
+          If this text is <b>not</b> centered and <b>yellow</b>, you probably
+          have an error
+        </p>
+        <div class="fixed-bottom p-4">
+          Made with ❤️ by
+          <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
+        </div>
+      </form>
     </div>
+    <script src="javascript.js"></script>
   </body>
 </html>
