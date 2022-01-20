@@ -1,1 +1,36 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
+
+body {
+  background-color: rgb(195, 195, 216);
+}
+
+h1 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.form {
+  width: 50%;
+  margin: 10%;
+  padding: 2%;
+  background-color: rgb(201, 180, 221);
+  border-radius: 8px;
+  font-size: 24px;
+}
+/*.visible {
+  border: 1px solid black;
+  visibility: visible;
+  padding: 0%;
+}*/
+
+.wrap {
+  width: 100%;
+  margin-left: 20%;
+  margin-top: 0%;
+}
+
+.inputs {
+  display: block;
+}
+
+#submit {
+  margin-top: 5%;
+}
