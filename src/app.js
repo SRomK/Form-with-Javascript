@@ -21,6 +21,23 @@ const repPass = document.querySelector("#repPass");
 const allElements = [name, surname, age, email, password, repPass];
 
 //objeto
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  if (
+    name.classList.contains("valid") &&
+    surname.classList.contains("valid") &&
+    age.classList.contains("valid") &&
+    email.classList.contains("valid") &&
+    password.classList.contains("valid") &&
+    repPass.classList.contains("valid")
+  ) {
+    console.log("OK");
+    alert("Your form has been sent.");
+  } else {
+    console.log("NOT OK");
+    alert("Your form is incomplete.");
+  }
+});
 
 name.addEventListener("focusout", () => {
   if (name.value.length > 0) {
@@ -53,10 +70,12 @@ age.addEventListener("focusout", () => {
 });
 
 email.addEventListener("focusout", () => {
-  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(form.email.value)) {
+  if (email.value.length > 0) {
     email.classList.remove("invalid");
     email.classList.add("valid");
   } else {
+    email.classList.remove("valid");
+    email.classList.add("invalid");
     alert("You have entered an invalid email address!");
   }
 });
@@ -77,21 +96,24 @@ password.addEventListener("focusout", () => {
 
 repPass.addEventListener("focusout", () => {
   if (repPass.value.length > 0) {
+    repPass.classList.add("valid");
     repPass.classList.replace("invalid", "valid");
   } else {
+    repPass.classList.add("invalid");
     repPass.classList.replace("valid", "invalid");
   }
 });
 
-form.addEventListener("submit", e => {
-  e.preventDefault();
-  allElements.forEach(element => {
-    if (element.classList.contains("valid")) {
-    } else {
-      alert("Your form is incomplete.");
-    }
-  });
+// form.addEventListener("submit", e => {
+//   e.preventDefault();
+//   allElements.forEach(element => {
+//     if (element.classList.contains("valid")) {
+//     } else {
+//       alert("Your form is incomplete.");
+//     }
+//   });
 
+/*
   // HAGO UN 5IF && Y ELSE
 
   //name.classList.contains("valid") &&
@@ -99,7 +121,7 @@ form.addEventListener("submit", e => {
 
   //else()
 
-  ///ver si guardo lo de abajo o no
+  ver si guardo lo de abajo o no
 
   if (name.value == "" || name.value == null) {
     error.classList.remove("d-none");
@@ -112,7 +134,4 @@ form.addEventListener("submit", e => {
   if (name.classList.contains("valid")) {
     succs.classList.remove("dnone");
     succs.classList.add("dshow");
-  }
-});
-
-//O HAGO LO DEL SUBMIT CON foreach probar depsues
+  }*/
