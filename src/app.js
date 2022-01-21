@@ -21,31 +21,8 @@ const repPass = document.querySelector("#repPass");
 const allElements = [name, surname, age, email, password, repPass];
 
 //objeto
-form.addEventListener("submit", e => {
-  e.preventDefault();
-  // if (name.value == "" || name.value == null) {
-  //   error.classList.remove("d-none");
-  //   error.classList.add("d-show");
-  // } else {
-  //   error.classList.remove("d-show");
-  //   error.classList.add("d-none");
-  // }
-  if (name.classList.contains("valid")) {
-    succs.classList.remove("d-none");
-    succs.classList.add("d-show");
-  }
-});
-
-//con foreach no
 
 name.addEventListener("focusout", () => {
-  // if (name.value == "" || name.value == null) {
-  //   name.classList.remove("valid");
-  //   name.classList.add("invalid");
-  // } else {
-  //   name.classList.remove("invalid");
-  //   name.classList.add("valid");
-  // }
   if (name.value.length > 0) {
     name.classList.remove("invalid");
     name.classList.add("valid");
@@ -55,76 +32,87 @@ name.addEventListener("focusout", () => {
   }
 });
 
-//input funcion que pasa un tag y que le agregue y le quite
-
-// surname.addEventListener("focusout", () => {
-//   if (surname.value == "" || surname.value == null) {
-//     surname.classList.add("invalid");
-//   } else {
-//     surname.classList.add("valid");
-//   }
-// });
-/*
-name.addEventListener("focusout", () => {
-  if (name.value == "" || name.value == null) {
-    name.classList.remove("valid");
-    name.classList.add("invalid");
+surname.addEventListener("focusout", () => {
+  if (surname.value.length > 0) {
+    surname.classList.remove("invalid");
+    surname.classList.add("valid");
   } else {
-    name.classList.remove("invalid");
-    name.classList.add("valid");
+    surname.classList.remove("valid");
+    surname.classList.add("invalid");
   }
-});*/
-
-/* value.match(onlyletters)
-
-   
-
-  if (password.value.length <= 6) {
-    messages.push("Password must be longer than 6 characters");
-  }
-    else{
-
-    }
-
-  if (password.value.length >= 20) {
-    messages.push("Password must be less than 20 characters");
-  }
-    else{
-
-    }
-
-
-  if (password.value === "password") {
-    messages.push("Password cannot be password");
-  }
-    else{
-
-    }
-
-  )}
-
-  if (messages.length > 0) {
-    errorElem.innerText = messages.join(", ");
-  }
-
-  else{ 
-
-  }
-
-  //alert si estan validar de alguna forma que los datos sean los que estas pidiendo
 });
 
+age.addEventListener("focusout", () => {
+  if (age.value.length > 0) {
+    age.classList.remove("invalid");
+    age.classList.add("valid");
+  } else {
+    age.classList.remove("valid");
+    age.classList.add("invalid");
+  }
+});
 
+email.addEventListener("focusout", () => {
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(form.email.value)) {
+    email.classList.remove("invalid");
+    email.classList.add("valid");
+  } else {
+    alert("You have entered an invalid email address!");
+  }
+});
 
+password.addEventListener("focusout", () => {
+  if (password.value !== "password" && password.value.length > 0) {
+    password.classList.remove("invalid");
+    password.classList.add("valid");
+  } else if (password.value == "password") {
+    alert("Password cannot be password");
+    password.classList.remove("valid");
+    password.classList.add("invalid");
+  } else {
+    password.classList.remove("valid");
+    password.classList.add("invalid");
+  }
+});
 
-form.addEventListener("submit", e => 
-e.preventDefault();
+repPass.addEventListener("focusout", () => {
+  if (repPass.value.length > 0) {
+    repPass.classList.replace("invalid", "valid");
+  } else {
+    repPass.classList.replace("valid", "invalid");
+  }
+});
 
-)}*/
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  allElements.forEach(element => {
+    if (element.classList.contains("valid")) {
+    } else {
+      alert("Your form is incomplete.");
+    }
+  });
 
-//if()
+  // HAGO UN 5IF && Y ELSE
 
-//name.classList.contains("valid") &&
-//surname.classList.contains("valid") &&
+  //name.classList.contains("valid") &&
+  //surname.classList.contains("valid") &&
 
-//else()
+  //else()
+
+  ///ver si guardo lo de abajo o no
+
+  if (name.value == "" || name.value == null) {
+    error.classList.remove("d-none");
+    error.classList.add("d-show");
+  } else {
+    error.classList.remove("d-show");
+    error.classList.add("d-none");
+  }
+
+  if (name.classList.contains("valid")) {
+    succs.classList.remove("dnone");
+    succs.classList.add("dshow");
+  }
+});
+
+//O HAGO LO DEL SUBMIT CON foreach probar depsues
