@@ -21,6 +21,7 @@ const repPass = document.querySelector("#repPass");
 const allElements = [name, surname, age, email, password, repPass];
 
 //objeto
+
 form.addEventListener("submit", e => {
   e.preventDefault();
   if (
